@@ -18,7 +18,7 @@ return {
         },
         border = {
           style = "none",
-          padding = { 2, 3 },
+          padding = { 1, 2 },
         },
         size = {
           min_width = 60,

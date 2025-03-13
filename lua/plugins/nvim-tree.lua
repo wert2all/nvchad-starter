@@ -15,8 +15,6 @@ return {
 
     nvim_tree.setup {
       view = {
-        width = width,
-        height = height,
         float = {
           enable = true,
           open_win_config = {
