@@ -50,17 +50,17 @@ return {
       },
       hover = {
         border = {
-          style = "single",
+          style = "none",
         },
       },
       confirm = {
         border = {
-          style = "single",
+          style = "none",
         },
       },
       popup = {
         border = {
-          style = "single",
+          style = "none",
         },
       },
     },
