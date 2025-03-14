@@ -16,8 +16,10 @@ local cmd = {
 local configs = require "nvchad.configs.lspconfig"
 
 local servers = {
-  html = {},
   bashls = {},
+
+  jsonls = {},
+  html = {},
   cssls = {},
   angularls = {
     cmd = cmd,
