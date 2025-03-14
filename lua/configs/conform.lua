@@ -1,5 +1,6 @@
 local options = {
   formatters_by_ft = {
+    lua = { "stylua" },
     html = { "prettierd", "prettier", stop_after_first = true },
     css = { "prettierd", "prettier", stop_after_first = true },
     scss = { "prettierd", "prettier", stop_after_first = true },
@@ -9,7 +10,7 @@ local options = {
 
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 500,
+    timeout_ms = 1000,
     lsp_fallback = true,
   },
 }
