@@ -19,8 +19,9 @@ local servers = {
   bashls = {},
 
   jsonls = {},
-  html = {},
-  cssls = {},
+  html = { init_options = { provideFormatter = false } },
+  cssls = { init_options = { provideFormatter = false } },
+  emmet_ls = {},
   angularls = {
     cmd = cmd,
     on_new_config = function(new_config, new_root_dir)
