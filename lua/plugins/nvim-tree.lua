@@ -6,14 +6,19 @@ return {
       "<cmd>:NvimTreeToggle<cr>",
     },
   },
-  config = function()
+  opts = {
+    filters = {
+      dotfiles = false,
+    },
+  },
+  config = function(_, opts)
     local nvim_tree = require "nvim-tree"
     local gwidth = vim.api.nvim_list_uis()[1].width
     local gheight = vim.api.nvim_list_uis()[1].height
     local width = 60
     local height = 20
 
-    nvim_tree.setup {
+    local config = vim.tbl_deep_extend("force", opts, {
       view = {
         float = {
           enable = true,
@@ -26,6 +31,26 @@ return {
           },
         },
       },
-    }
+      on_attach = function(bufnr)
+        local api = require "nvim-tree.api"
+
+        -- Default mappings from nvim-tree
+        api.config.mappings.default_on_attach(bufnr)
+
+        -- Add custom mapping for ESC to close the tree (only when it's open in float mode)
+        vim.keymap.set("n", "<Esc>", function()
+          -- Check if we're in a floating window (the nvim-tree)
+          local win_id = vim.api.nvim_get_current_win()
+          local win_config = vim.api.nvim_win_get_config(win_id)
+
+          -- Only close if it's actually a floating window
+          if win_config.relative ~= "" then
+            api.tree.close()
+          end
+        end, { desc = "Close the tree", buffer = bufnr, noremap = true, silent = true })
+      end,
+    })
+
+    nvim_tree.setup(config)
   end,
 }
