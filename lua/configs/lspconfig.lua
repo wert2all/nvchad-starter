@@ -4,7 +4,7 @@ local lspconfig = require "lspconfig"
 
 local install_path = vim.fn.stdpath "data" .. "/mason/packages/angular-language-server/node_modules"
 
-local cmd = {
+local angular_cmd = {
   "ngserver",
   "--stdio",
   "--tsProbeLocations",
@@ -23,9 +23,9 @@ local servers = {
   cssls = { init_options = { provideFormatter = false } },
   emmet_ls = {},
   angularls = {
-    cmd = cmd,
-    on_new_config = function(new_config, new_root_dir)
-      new_config.cmd = cmd
+    cmd = angular_cmd,
+    on_new_config = function(new_config, _)
+      new_config.cmd = angular_cmd
     end,
   },
   vtsls = {
