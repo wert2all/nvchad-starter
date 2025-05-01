@@ -3,14 +3,6 @@ return {
     "olimorris/codecompanion.nvim",
     dependencies = {
       { "nvim-lua/plenary.nvim", branch = "master" },
-      {
-        "nvim-treesitter/nvim-treesitter",
-        opts = function(_, opts)
-          if opts.ensure_installed ~= "all" then
-            opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "markdown" })
-          end
-        end,
-      },
     },
     opts = {
       strategies = {
