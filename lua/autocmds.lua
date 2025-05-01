@@ -11,11 +11,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- don't auto comment new line
 vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
-vim.filetype.add {
-  filename = {
-    ["docker-compose.yml"] = "yaml.docker-compose",
-    ["docker-compose.yaml"] = "yaml.docker-compose",
-    ["compose.yml"] = "yaml.docker-compose",
-    ["compose.yaml"] = "yaml.docker-compose",
+-- add filetype for docker
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = {
+    "docker-compose*.yml",
+    "docker-compose*.yaml",
+    "*docker-compose.yml",
+    "*docker-compose.yaml",
+    "compose.yaml",
+    "compose.yml",
   },
-}
+  callback = function()
+    vim.bo.filetype = "yaml.docker-compose"
+  end,
+})
