@@ -1,8 +1,32 @@
-require "nvchad.mappings"
+-- require "nvchad.mappings"
 
 -- add yours here
 
 local map = vim.keymap.set
+
+map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
+map({ "n", "x" }, "<leader>cf", function()
+  require("conform").format { lsp_fallback = true }
+end, { desc = "format file" })
+
+map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
+
+map("n", "<leader>c", function()
+  require("nvchad.tabufline").close_buffer()
+end, { desc = "buffer close" })
+
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
+map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
+map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
+map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
+map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" })
+map("n", "<leader>fm", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
+map("n", "<leader>ft", function()
+  require("nvchad.themes").open()
+end, { desc = "telescope nvchad themes" })
+
+map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })
+map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")

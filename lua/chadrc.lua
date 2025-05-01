@@ -5,7 +5,7 @@
 ---@type ChadrcConfig
 return {
   base46 = {
-    theme = "ayu_dark",
+    theme = "wombat",
   },
   nvdash = { load_on_startup = true },
 }
