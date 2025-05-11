@@ -3,20 +3,33 @@ return {
     "olimorris/codecompanion.nvim",
     dependencies = {
       { "nvim-lua/plenary.nvim", branch = "master" },
+      { "nvim-treesitter/nvim-treesitter" },
     },
     opts = {
       strategies = {
         chat = {
-          adapter = "openrouter",
+          adapter = "mistral",
         },
         inline = {
-          adapter = "openrouter",
+          adapter = "mistral",
         },
         cmd = {
-          adapter = "openrouter",
+          adapter = "mistral",
         },
       },
       adapters = {
+        mistral = function()
+          return require("codecompanion.adapters").extend("mistral", {
+            env = {
+              api_key = os.getenv "MISTRAL_API_KEY",
+            },
+            schema = {
+              model = {
+                default = "codestral-latest",
+              },
+            },
+          })
+        end,
         openrouter = function()
           return require("codecompanion.adapters").extend("openai_compatible", {
             env = {
@@ -34,32 +47,4 @@ return {
       },
     },
   },
-  -- {
-  --   "Exafunction/codeium.vim",
-  --   cmd = {
-  --     "Codeium",
-  --     "CodeiumEnable",
-  --     "CodeiumDisable",
-  --     "CodeiumToggle",
-  --     "CodeiumAuto",
-  --     "CodeiumManual",
-  --   },
-  --   event = "BufEnter",
-  --   config = function(_, opts)
-  --     vim.keymap.set("n", "<Leader>;", "<Cmd>CodeiumToggle<CR>", { desc = "Toggle Codeium active" })
-  --
-  --     vim.keymap.set("i", "<C-g>", function()
-  --       return vim.fn["codeium#Accept"]()
-  --     end, { expr = true, silent = true })
-  --     vim.keymap.set("i", "<C-;>", function()
-  --       return vim.fn["codeium#CycleCompletions"](1)
-  --     end, { expr = true, silent = true })
-  --     vim.keymap.set("i", "<C-,>", function()
-  --       return vim.fn["codeium#CycleCompletions"](-1)
-  --     end, { expr = true, silent = true })
-  --     vim.keymap.set("i", "<C-x>", function()
-  --       return vim.fn["codeium#Clear"]()
-  --     end, { expr = true, silent = true })
-  --   end,
-  -- },
 }

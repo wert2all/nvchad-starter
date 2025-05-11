@@ -5,7 +5,7 @@
 ---@type ChadrcConfig
 return {
   base46 = {
-    theme = "wombat",
+    theme = "onedark",
   },
   ui = {
     cmp = {
