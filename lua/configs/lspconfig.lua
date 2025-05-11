@@ -1,7 +1,5 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
-
 local install_path = vim.fn.stdpath "data" .. "/mason/packages/angular-language-server/node_modules"
 
 local angular_cmd = {
@@ -12,8 +10,6 @@ local angular_cmd = {
   "--ngProbeLocations",
   install_path .. "/@angular/language-server/node_modules",
 }
-
-local configs = require "nvchad.configs.lspconfig"
 
 local servers = {
   bashls = {},
