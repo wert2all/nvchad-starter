@@ -6,6 +6,8 @@ local options = {
     scss = { "prettierd", "prettier", stop_after_first = true },
     less = { "prettierd", "prettier", stop_after_first = true },
     postcss = { "prettierd", "prettier", stop_after_first = true },
+    sh = { "shfmt", "shellcheck" },
+    zsh = { "shfmt", "shellcheck" },
   },
 
   format_on_save = {
