@@ -28,6 +28,16 @@ end, { desc = "telescope nvchad themes" })
 map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 
+map("n", "<leader>gr", function()
+  require("gitsigns").reset_hunk()
+end, { desc = "Reset Git hunk" })
+map("v", "<leader>gr", function()
+  require("gitsigns").reset_hunk { vim.fn.line ".", vim.fn.line "v" }
+end, { desc = "Reset Git hunk" })
+map("n", "<leader>gR", function()
+  require("gitsigns").reset_buffer()
+end, { desc = "Reset Git buffer" })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
