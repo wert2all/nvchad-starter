@@ -19,6 +19,7 @@ return {
           mode = { "n", "v" },
           { "<leader>f", group = "Find" },
           { "<leader>g", group = "Git" },
+          { "<leader>l", group = "Lsp" },
           { "[", group = "prev" },
           { "]", group = "next" },
           { "g", group = "goto" },

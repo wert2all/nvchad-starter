@@ -5,9 +5,6 @@
 local map = vim.keymap.set
 
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
-map({ "n", "x" }, "<leader>cf", function()
-  require("conform").format { lsp_fallback = true }
-end, { desc = "format file" })
 
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
