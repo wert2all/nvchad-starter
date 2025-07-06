@@ -4,6 +4,7 @@ return {
     {
       "<leader>e",
       "<cmd>:NvimTreeToggle<cr>",
+      desc = "Toggle NeoTree",
     },
   },
   opts = {
