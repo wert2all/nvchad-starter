@@ -6,8 +6,6 @@ local map = vim.keymap.set
 
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 
-map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
-
 map("n", "<leader>c", function()
   require("nvchad.tabufline").close_buffer()
 end, { desc = "buffer close" })
