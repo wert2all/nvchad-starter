@@ -5,6 +5,16 @@ local dailyFolder = "Daily"
 return {
   "obsidian-nvim/obsidian.nvim",
   event = { "BufReadPre " .. vim.fn.expand "~/" .. vaultDirectory .. "/**.md" },
+  keys = {
+    {
+      "<leader>On",
+      function()
+        require "obsidian"
+        vim.api.nvim_command("Obsidian new inbox/" .. os.date "%Y-%m-%d" .. "-note.md")
+      end,
+      desc = "Create new Obsidian note in income folder",
+    },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "hrsh7th/nvim-cmp", optional = true },

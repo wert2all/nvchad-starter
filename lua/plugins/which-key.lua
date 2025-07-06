@@ -6,7 +6,8 @@ return {
       icons = {
         breadcrumb = " ",
         separator = "󱦰  ",
-        group = "󰹍 ",
+        -- group = "󰹍 ",
+        group = "",
         mappings = true,
       },
       plugins = {
@@ -19,7 +20,8 @@ return {
           mode = { "n", "v" },
           { "<leader>f", group = "Find" },
           { "<leader>g", group = "Git" },
-          { "<leader>l", group = "Lsp" },
+          { "<leader>l", group = "Lsp", icon = "󰘦" },
+          { "<leader>O", group = "Obsidian", icon = "" },
           { "[", group = "prev" },
           { "]", group = "next" },
           { "g", group = "goto" },

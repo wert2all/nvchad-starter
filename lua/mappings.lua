@@ -39,8 +39,3 @@ map("n", "<C-u>", "<C-u>zz")
 
 map("n", "n", "nzzv")
 map("n", "N", "Nzzv")
-
-map({ "n" }, "<leader>On", function()
-  require "obsidian"
-  vim.api.nvim_command("Obsidian new inbox/" .. os.date "%Y-%m-%d" .. "-note.md")
-end, { desc = "Create new Obsidian note in income folder" })
