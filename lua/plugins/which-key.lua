@@ -4,10 +4,10 @@ return {
     require("which-key").setup(vim.tbl_deep_extend("force", opts, {
       preset = "modern",
       icons = {
-        rules = false,
         breadcrumb = " ",
         separator = "󱦰  ",
         group = "󰹍 ",
+        mappings = true,
       },
       plugins = {
         spelling = {
