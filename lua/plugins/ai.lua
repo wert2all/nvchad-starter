@@ -1,49 +1,23 @@
 return {
   {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim", branch = "master" },
-      { "nvim-treesitter/nvim-treesitter" },
-    },
+    "yetone/avante.nvim",
     opts = {
-      strategies = {
-        chat = {
-          adapter = "mistral",
+      provider = "gemini",
+      providers = {
+        openrouter = {
+          __inherited_from = "openai",
+          endpoint = "https://openrouter.ai/api/v1",
+          api_key_name = "OPENROUTER_API_KEY",
+          -- disable_tools = true,
+          model = "meta-llama/llama-4-maverick:free",
         },
-        inline = {
-          adapter = "mistral",
+        mistral = {
+          __inherited_from = "openai",
+          api_key_name = "MISTRAL_API_KEY",
+          endpoint = "https://api.mistral.ai/v1/",
+          model = "codestral-latest",
+          max_tokens = 4096, -- to avoid using max_completion_tokens
         },
-        cmd = {
-          adapter = "mistral",
-        },
-      },
-      adapters = {
-        mistral = function()
-          return require("codecompanion.adapters").extend("mistral", {
-            env = {
-              api_key = os.getenv "MISTRAL_API_KEY",
-            },
-            schema = {
-              model = {
-                default = "codestral-latest",
-              },
-            },
-          })
-        end,
-        openrouter = function()
-          return require("codecompanion.adapters").extend("openai_compatible", {
-            env = {
-              url = "https://openrouter.ai/api",
-              api_key = os.getenv "OPENROUTER_API_KEY",
-              chat_url = "/v1/chat/completions",
-            },
-            schema = {
-              model = {
-                default = "openrouter/optimus-alpha",
-              },
-            },
-          })
-        end,
       },
     },
   },
