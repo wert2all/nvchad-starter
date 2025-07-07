@@ -1,4 +1,5 @@
-require("nvchad.configs.lspconfig").defaults()
+local capabilities = require("nvchad.configs.lspconfig").capabilities
+local on_init = require("nvchad.configs.lspconfig").on_init
 
 local install_path = vim.fn.stdpath "data" .. "/mason/packages/angular-language-server/node_modules"
 
@@ -56,7 +57,24 @@ local servers = {
 
   docker_compose_language_service = {},
   dockerls = {},
+
+  lua_ls = {
+    settings = {
+      Lua = {
+        workspace = {
+          library = {
+            vim.fn.expand "$VIMRUNTIME/lua",
+            vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
+            vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
+            "${3rd}/luv/library",
+          },
+        },
+      },
+    },
+  },
 }
+
+vim.lsp.config("*", { capabilities = capabilities, on_init = on_init })
 
 for name, config in pairs(servers) do
   vim.lsp.config(name, config)
