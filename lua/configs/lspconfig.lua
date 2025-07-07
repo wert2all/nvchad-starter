@@ -72,6 +72,7 @@ local servers = {
       },
     },
   },
+  phpactor = {},
 }
 
 vim.lsp.config("*", { capabilities = capabilities, on_init = on_init })

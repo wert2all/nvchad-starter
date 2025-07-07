@@ -26,6 +26,7 @@
   "obsidian.nvim": { "branch": "main", "commit": "d22a3b59a176f631cdccd44664f8de615d5753d3" },
   "other.nvim": { "branch": "main", "commit": "1d48e090f6d1d53dda9fb5094af3f2006ebbb858" },
   "package-info.nvim": { "branch": "master", "commit": "4f1b8287dde221153ec9f2acd46e8237d2d0881e" },
+  "phprefactoring.nvim": { "branch": "main", "commit": "dbc2d39602500a9aab5342487e6192c86deebc02" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
   "tsc.nvim": { "branch": "main", "commit": "8c1b4ec6a48d038a79ced8674cb15e7db6dd8ef0" },

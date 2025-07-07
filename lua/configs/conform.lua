@@ -6,6 +6,7 @@ local options = {
     scss = { "prettierd", "prettier", stop_after_first = true },
     less = { "prettierd", "prettier", stop_after_first = true },
     postcss = { "prettierd", "prettier", stop_after_first = true },
+    php = { "php_cs_fixer" },
     sh = { "shfmt", "shellcheck" },
     zsh = { "shfmt", "shellcheck" },
   },
