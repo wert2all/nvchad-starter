@@ -15,8 +15,10 @@ return {
     statusline = {
       theme = "minimal",
     },
+  
   },
   nvdash = { load_on_startup = true },
+  
 }
 
 return M

@@ -11,6 +11,15 @@ return {
     filters = {
       dotfiles = false,
     },
+    view = {
+      float = {
+        enable = true,
+        open_win_config = {
+          relative = "editor",
+          border = "none",
+        },
+      },
+    },
   },
   config = function(_, opts)
     local nvim_tree = require "nvim-tree"
@@ -22,9 +31,7 @@ return {
     local config = vim.tbl_deep_extend("force", opts, {
       view = {
         float = {
-          enable = true,
           open_win_config = {
-            relative = "editor",
             width = width,
             height = height,
             row = (gheight - height) * 0.4,
