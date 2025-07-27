@@ -13,6 +13,10 @@ return {
     },
     statusline = {
       theme = "minimal",
+      order = { "pad", "file", "%=", "diagnostics", "%=", "lsp_msg", "cursor" },
+      modules = {
+        pad = " ",
+      },
     },
   },
   nvdash = { load_on_startup = true },
