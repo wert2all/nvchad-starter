@@ -18,4 +18,14 @@ return {
       desc = "Find themes",
     },
   },
+  opts = {
+    pickers = {
+      find_files = {
+        hidden = true,
+      },
+      live_grep = {
+        hidden = true,
+      },
+    },
+  },
 }
