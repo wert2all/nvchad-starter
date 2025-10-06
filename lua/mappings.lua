@@ -6,10 +6,6 @@ local map = vim.keymap.set
 
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 
-map("n", "<leader>c", function()
-  require("nvchad.tabufline").close_buffer()
-end, { desc = "buffer close" })
-
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
@@ -29,9 +25,17 @@ map("v", ">", ">gv")
 map("v", "p", '"_dp')
 map("v", "P", '"_dP')
 
+-- buffers
 -- Navigate buffers
 map("n", "]b", ":bnext<CR>")
 map("n", "[b", ":bprevious<CR>")
+-- closeing buffers
+map("n", "<leader>c", function()
+  require("nvchad.tabufline").close_buffer()
+end, { desc = "buffer close" })
+map("n", "<leader>bc", function()
+  require("nvchad.tabufline").closeAllBufs(false)
+end, { desc = "closes all buffers except the current one" })
 
 -- Keep cursor centered when scrolling
 map("n", "<C-d>", "<C-d>zz")
