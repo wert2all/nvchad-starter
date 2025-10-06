@@ -72,6 +72,8 @@ local servers = {
       },
     },
   },
+  luacheck = {},
+
   phpactor = {},
 }
 
